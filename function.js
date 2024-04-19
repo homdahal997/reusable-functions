@@ -27,3 +27,23 @@ function myArrayAverage(arr){
 }
 // logging average using our previous array of numbers
 console.log(myArrayAverage(numbers));
+
+// Take an array of strings and return the longest string.
+function myArrayString(arr){
+    // let our longest string be empty for now
+    let longestString = "";
+    // loop through the array
+    for(i = 0; i < arr.length; i++){
+        // compare each string to find the longest string
+        if(arr[i].length > longestString.length){
+            // if any current element of an array is longer than length of longest string,
+            // our longest string will be the current element 
+            longestString = arr[i];
+        }   
+    }
+    // return longest string
+    return longestString;
+}
+let arrString = ["Javascript", "something of a kind", "Java is not cooler than javascript"];
+console.log(myArrayString(arrString));
+
