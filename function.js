@@ -82,4 +82,59 @@ function printOneToNumber(n) {
         console.error("An error occurred: ", error);
     }
 }
-printOneToNumber(10);
+printOneToNumber(5);
+
+console.log("======================Part 2: Thinking Methodically==========================");
+// our given array of objects  is as follows 
+const arrayObject = [
+    { id: "42", name: "Bruce", occupation: "Knight", age: "41" }, 
+    { id: "48", name: "Barry", occupation: "Runner", age: "25" }, 
+    { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, 
+    { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, 
+    { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+]
+
+//Sort the array by age.
+// we can use javascript builtin array method , sort to sort the age
+arrayObject.sort((a,b) =>a.age - b.age);
+console.log(arrayObject);
+
+// Filter the array to remove entries with an age greater than 50.
+const filteredArray = arrayObject.filter(person => person.age <= 50);
+console.log(filteredArray);
+
+// Map the array to change the “occupation” key to “job” and increment every age by 1.
+// for(key in arrayObject){
+//     arrayObject.occupation = "Job";
+//     arrayObject.age += 1;
+// }
+// console.log(arrayObject);
+// create new array to map properties of object according to the definition of map.
+let newArray = arrayObject.map(person =>{
+    return{
+        // ... spread operator is used to include all properties from original object.
+        ...person,
+        // overwrites occupation and increment age by 1 as below
+        job: person.occupation,
+        age: person.age + 1
+    };
+});
+console.log(newArray);
+
+/**
+ * Use the reduce method to calculate the sum of the ages.
+Then use the result to calculate the average age.
+ */
+// Extract the ages into a new array
+const ages = arrayObject.map(person => Number(person.age));
+
+// Calculate the sum of the ages
+const sum = ages.reduce((a, b) => a + b, 0);
+
+// Calculate the average age
+const average = sum / ages.length;
+
+console.log(average);
+
+
+
