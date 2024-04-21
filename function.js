@@ -22,6 +22,7 @@ console.log(myArraySum(numbers)); // 15
 
 // Take an array of numbers and return the average.
 function myArrayAverage(arr) {
+    let average = 0;
     // Average calculated using previously built myArraySum function
     return average = myArraySum(arr) / arr.length;
 }
@@ -137,4 +138,31 @@ const average = sum / ages.length;
 console.log(average);
 
 
+console.log("======================Part 3: Thinking Critically==========================");
+// Take an object and increment its age field.
+function incrementAge(myObject){
+    if(!("age" in myObject)){
+        myObject.age = 0;
+    }
+    myObject.age++;
+    myObject.updated_at = new Date();
+}
+
+// Take an object, make a copy, and increment the age field of the copy. Return the copy.
+function copyOfIncrementAge(myObject){
+    return { 
+        ...myObject, // copy by defition
+        age: myObject.age + 1, // age increments
+        updated_at: new Date() // date upydated
+    };
+}
+// Test the functions
+let testObj1 = { name: "Hom Dahal", occupation: "MERN STACK DEVELOPER" };
+incrementAge(testObj1);
+console.log(testObj1);
+
+let testObj2 = { name: "Hom Dahal", occupation: "Software Developer", age: 25 };
+let testObj2Copy = copyOfIncrementAge(testObj2);
+console.log(testObj2);
+console.log(testObj2Copy);
 
